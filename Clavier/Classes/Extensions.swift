@@ -43,8 +43,8 @@ extension CGRect {
     }
     
     func innerFrame(with insets: UIEdgeInsets) -> CGRect {
-        let x = origin.x + insets.left
-        let y = origin.y + insets.top
+        let x = insets.left
+        let y = insets.top
         let width = size.width - insets.left - insets.right
         let height = size.height - insets.top - insets.bottom
         return CGRect(x: x, y: y, width: width, height: height)
