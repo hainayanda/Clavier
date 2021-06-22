@@ -9,6 +9,19 @@ import Foundation
 #if canImport(UIKit)
 import UIKit
 
+enum KeyboardState {
+    case up
+    case down
+    
+    var isUp: Bool {
+        self == .up
+    }
+    
+    var isDown: Bool {
+        self == .down
+    }
+}
+
 public class KeyboardLayoutGuide: UILayoutGuide {
     
     var window: UIWindow? {
@@ -119,6 +132,8 @@ public class KeyboardLayoutGuide: UILayoutGuide {
     
     var observeInsetsToken: NSObject?
     
+    var keyboardState: KeyboardState = .down
+    
     public override var owningView: UIView? {
         get {
             super.owningView
@@ -130,11 +145,11 @@ public class KeyboardLayoutGuide: UILayoutGuide {
                 return
             }
             updateGuideConstraints()
-            observeFrameToken = observeFrame(for: view)
+            observeFrameToken = observeKVC(for: view, keyPath: \.frame)
             if #available(iOS 11.0, *) {
-                observeInsetsToken = observeInsets(for: view)
+                observeInsetsToken = observeKVC(for: view, keyPath: \.safeAreaInsets)
             } else {
-                observeInsetsToken = observeMargins(for: view)
+                observeInsetsToken = observeKVC(for: view, keyPath: \.layoutMargins)
             }
         }
     }
@@ -174,19 +189,7 @@ public class KeyboardLayoutGuide: UILayoutGuide {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardFrameChanged(notification:)),
-            name: UIView.keyboardDidChangeFrameNotification,
-            object: nil
-        )
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardFrameChanged(notification:)),
-            name: UIApplication.willChangeStatusBarOrientationNotification,
-            object: nil
-        )
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardFrameChanged(notification:)),
-            name: UIApplication.willChangeStatusBarOrientationNotification,
+            name: UIApplication.didChangeStatusBarOrientationNotification,
             object: nil
         )
         NotificationCenter.default.addObserver(
@@ -197,25 +200,9 @@ public class KeyboardLayoutGuide: UILayoutGuide {
         )
     }
     
-    func observeFrame(for view: UIView) -> NSObject {
-        return view.observe(\.frame, options: [.new, .old]) { [weak self] sender, changes in
-            guard let self = self else { return }
-            self.updateGuideConstraints()
-        }
-    }
-    
-    @available(iOS 11.0, *)
-    func observeInsets(for view: UIView) -> NSObject {
-        return view.observe(\.safeAreaInsets, options: [.new, .old]) { [weak self] sender, changes in
-            guard let self = self else { return }
-            self.updateGuideConstraints()
-        }
-    }
-    
-    func observeMargins(for view: UIView) -> NSObject {
-        return view.observe(\.layoutMargins, options: [.new, .old]) { [weak self] sender, changes in
-            guard let self = self else { return }
-            self.updateGuideConstraints()
+    func observeKVC<Property>(for view: UIView, keyPath: KeyPath<UIView, Property>) -> NSObject {
+        return view.observe(keyPath, options: [.new, .old]) { [weak self] sender, changes in
+            self?.updateGuideConstraints()
         }
     }
     
@@ -246,23 +233,31 @@ public class KeyboardLayoutGuide: UILayoutGuide {
         }
     }
     
+    func useDefaultKeyboardRectIfShould() {
+        guard keyboardState.isDown else { return }
+        keyboardRect = defaultKeyboardRect
+    }
+    
     @objc func keyboardFrameChanged(notification: Notification) {
         guard let userInfo = notification.userInfo,
               let keyboardValue = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
                 ?? userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue else {
-            keyboardRect = defaultKeyboardRect
-            return
-        }
-        guard keyboardValue.cgRectValue.intersects(UIScreen.main.bounds) else {
-            keyboardRect = defaultKeyboardRect
+            useDefaultKeyboardRectIfShould()
             return
         }
         let rect = keyboardValue.cgRectValue.intersection(UIScreen.main.bounds)
-        guard !rect.isNull else {
+        guard !rect.isNull, rect.height > 0 else {
+            keyboardState = .down
             keyboardRect = defaultKeyboardRect
             return
         }
+        keyboardState = .up
         keyboardRect = rect
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
 }
 #endif
