@@ -1,15 +1,15 @@
 {
   "name": "Clavier",
   "version": "1.0.0",
-  "summary": "Keyboard Layout Guide for iOS",
-  "description": "Keyboard Layout Guide for iOS that utilize extensions so it could be available on any view",
+  "summary": "Clavier is Keyboard Layout Guide for iOS.",
+  "description": "Clavier is Keyboard Layout Guide for iOS. Its using intersection frame to calculate the Layout Guide.",
   "homepage": "https://github.com/nayanda1/Clavier",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "24823437": "nayanda1@outlook.com"
+    "nayanda": "nayanda1@outlook.com"
   },
   "source": {
     "git": "https://github.com/nayanda1/Clavier.git",

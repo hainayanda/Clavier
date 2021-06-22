@@ -10,7 +10,5 @@ target 'Clavier_Example' do
 
     pod 'Quick', '~> 4.0.0'
     pod 'Nimble', '~> 9.2.0'
-    pod 'FBSnapshotTestCase' , '~> 2.1.4'
-    pod 'Nimble-Snapshots' , '~> 9.1.0'
   end
 end
