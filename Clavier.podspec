@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'Clavier'
   s.version          = '1.0.0'
-  s.summary          = 'Keyboard Layout Guide for iOS'
+  s.summary          = 'Clavier is Keyboard Layout Guide for iOS.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-  Keyboard Layout Guide for iOS that utilize extensions so it could be available on any view
+  Clavier is Keyboard Layout Guide for iOS. Its using intersection frame to calculate the Layout Guide.
                        DESC
 
   s.homepage         = 'https://github.com/nayanda1/Clavier'
