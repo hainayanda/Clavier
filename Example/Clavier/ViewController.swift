@@ -20,13 +20,13 @@ class ViewController: UIViewController {
     
     lazy var coloredView2: UIView = {
         let view = UIView()
-        view.backgroundColor = .cyan.withAlphaComponent(0.5)
+        view.backgroundColor = UIColor.cyan.withAlphaComponent(0.5)
         return view
     }()
     
     lazy var textField: UITextField = {
         let textField = UITextField()
-        textField.backgroundColor = .gray.withAlphaComponent(0.75)
+        textField.backgroundColor = UIColor.gray.withAlphaComponent(0.75)
         textField.placeholder = "text here"
         return textField
     }()
