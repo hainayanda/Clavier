@@ -13,6 +13,7 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
+		BBA12814268B434F00D13852 /* KeyboardLayoutGuideSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA12813268B434F00D13852 /* KeyboardLayoutGuideSpec.swift */; };
 		BBB808062681868C00EC9BBE /* ExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB808052681868C00EC9BBE /* ExtensionsSpec.swift */; };
 		F8E09CEA4535E2E639562DF0 /* Pods_Clavier_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F98397612218DCF9E43248FB /* Pods_Clavier_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 		72ECA1891B795457E4963073 /* Clavier.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Clavier.podspec; path = ../Clavier.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		ACBF4C9BCC98654E78B18C2A /* Pods-Clavier_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clavier_Tests.release.xcconfig"; path = "Target Support Files/Pods-Clavier_Tests/Pods-Clavier_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B0C2EE1A5100EC4C33F6621C /* Pods-Clavier_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clavier_Example.release.xcconfig"; path = "Target Support Files/Pods-Clavier_Example/Pods-Clavier_Example.release.xcconfig"; sourceTree = "<group>"; };
+		BBA12813268B434F00D13852 /* KeyboardLayoutGuideSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutGuideSpec.swift; sourceTree = "<group>"; };
 		BBB808052681868C00EC9BBE /* ExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsSpec.swift; sourceTree = "<group>"; };
 		C47B82C39AB12F5D1C6D0ED3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		E6281EC8E0BB3B0547171F94 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			children = (
 				BBB808052681868C00EC9BBE /* ExtensionsSpec.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
+				BBA12813268B434F00D13852 /* KeyboardLayoutGuideSpec.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBB808062681868C00EC9BBE /* ExtensionsSpec.swift in Sources */,
+				BBA12814268B434F00D13852 /* KeyboardLayoutGuideSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
