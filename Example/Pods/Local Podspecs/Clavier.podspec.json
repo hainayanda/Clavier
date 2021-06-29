@@ -1,6 +1,6 @@
 {
   "name": "Clavier",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "summary": "Clavier is Keyboard Layout Guide for iOS.",
   "description": "Clavier is Keyboard Layout Guide for iOS. Its using intersection frame to calculate the Layout Guide.",
   "homepage": "https://github.com/nayanda1/Clavier",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/nayanda1/Clavier.git",
-    "tag": "1.0.0"
+    "tag": "1.0.1"
   },
   "platforms": {
     "ios": "10.0"
