@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Clavier'
-  s.version          = '1.0.1'
+  s.version          = '1.0.2'
   s.summary          = 'Clavier is Keyboard Layout Guide for iOS.'
 
 # This description is used to generate tags and improve search results.
@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
   Clavier is Keyboard Layout Guide for iOS. Its using intersection frame to calculate the Layout Guide.
                        DESC
 
-  s.homepage         = 'https://github.com/nayanda1/Clavier'
+  s.homepage         = 'https://github.com/hainayanda/Clavier'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'nayanda' => 'nayanda1@outlook.com' }
-  s.source           = { :git => 'https://github.com/nayanda1/Clavier.git', :tag => s.version.to_s }
+  s.author           = { 'nayanda' => 'hainayanda@outlook.com' }
+  s.source           = { :git => 'https://github.com/hainayanda/Clavier.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
