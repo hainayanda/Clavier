@@ -132,7 +132,11 @@ public class KeyboardLayoutGuide: UILayoutGuide {
     
     var observeFrameToken: NSObject?
     
+    var observeBoundsToken: NSObject?
+    
     var observeInsetsToken: NSObject?
+    
+    var observeSuperviewToken: NSObject?
     
     var keyboardState: KeyboardState = .down
     
@@ -147,7 +151,9 @@ public class KeyboardLayoutGuide: UILayoutGuide {
                 return
             }
             updateGuideConstraints()
+            observeSuperviewToken = observeKVC(for: view, keyPath: \.superview)
             observeFrameToken = observeKVC(for: view, keyPath: \.frame)
+            observeBoundsToken = observeKVC(for: view, keyPath: \.bounds)
             if #available(iOS 11.0, *) {
                 observeInsetsToken = observeKVC(for: view, keyPath: \.safeAreaInsets)
             } else {
