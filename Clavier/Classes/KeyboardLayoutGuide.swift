@@ -232,8 +232,9 @@ public class KeyboardLayoutGuide: UILayoutGuide {
         )
     }
     
-    func observeKVC<Property>(for view: UIView, keyPath: KeyPath<UIView, Property>) -> NSObject {
+    func observeKVC<Property: Equatable>(for view: UIView, keyPath: KeyPath<UIView, Property>) -> NSObject {
         return view.observe(keyPath, options: [.new, .old]) { [weak self] sender, changes in
+            guard changes.newValue != changes.oldValue else { return }
             self?.updateGuideConstraints()
         }
     }
