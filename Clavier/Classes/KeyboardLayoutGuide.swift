@@ -10,8 +10,10 @@ import Foundation
 import UIKit
 
 enum KeyboardState {
+    case goingUp
     case up
     case down
+    case goingDown
     
     var isUp: Bool {
         self == .up
@@ -198,6 +200,30 @@ public class KeyboardLayoutGuide: UILayoutGuide {
             name: UIDevice.orientationDidChangeNotification,
             object: nil
         )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillGoingUp),
+            name: UIView.keyboardWillShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardDidGoUp),
+            name: UIView.keyboardDidShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillGoingDown),
+            name: UIView.keyboardWillHideNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardDidGoDown),
+            name: UIView.keyboardDidHideNotification,
+            object: nil
+        )
     }
     
     func observeKVC<Property>(for view: UIView, keyPath: KeyPath<UIView, Property>) -> NSObject {
@@ -247,12 +273,26 @@ public class KeyboardLayoutGuide: UILayoutGuide {
         }
         let rect = keyboardValue.cgRectValue.intersection(UIScreen.main.bounds)
         guard !rect.isNull, rect.height > 0 else {
-            keyboardState = .down
             keyboardRect = defaultKeyboardRect
             return
         }
-        keyboardState = .up
         keyboardRect = rect
+    }
+    
+    @objc func keyboardWillGoingUp() {
+        keyboardState = .goingUp
+    }
+    
+    @objc func keyboardDidGoUp() {
+        keyboardState = .up
+    }
+    
+    @objc func keyboardWillGoingDown() {
+        keyboardState = .goingDown
+    }
+    
+    @objc func keyboardDidGoDown() {
+        keyboardState = .down
     }
     
     deinit {
