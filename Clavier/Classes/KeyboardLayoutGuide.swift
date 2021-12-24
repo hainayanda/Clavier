@@ -244,13 +244,21 @@ public class KeyboardLayoutGuide: UILayoutGuide {
         let insets = usingSafeArea ? safeKeyboardEdgeInsetsInView: keyboardEdgeInsetsInView
         if edgesConstraints.count != 4 {
             createEdgeConstraints(for: view, with: insets)
-        } else {
+            view.setNeedsLayout()
+        } else if shouldUpdateConstant(using: insets) {
             edgesConstraints[0].constant = insets.left
             edgesConstraints[1].constant = insets.top
             edgesConstraints[2].constant = -insets.right
             edgesConstraints[3].constant = -insets.bottom
+            view.layoutIfNeeded()
         }
-        view.layoutIfNeeded()
+    }
+    
+    func shouldUpdateConstant(using insets: UIEdgeInsets) -> Bool {
+        edgesConstraints[0].constant != insets.left ||
+        edgesConstraints[1].constant != insets.top ||
+        edgesConstraints[2].constant != -insets.right ||
+        edgesConstraints[3].constant != -insets.bottom
     }
     
     func createEdgeConstraints(for view: UIView, with insets: UIEdgeInsets) {
