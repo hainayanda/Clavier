@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Clavier'
-  s.version          = '1.0.2'
+  s.version          = '1.0.3'
   s.summary          = 'Clavier is Keyboard Layout Guide for iOS.'
 
 # This description is used to generate tags and improve search results.
