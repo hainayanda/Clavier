@@ -21,10 +21,10 @@ class ExtensionsSpec: QuickSpec {
                 view = UIView()
             }
             it("should not use safe area") {
-                expect(view.keyboardLayoutGuide.usingSafeArea).to(beFalse())
+                expect(view.clavierLayoutGuide.usingSafeArea).to(beFalse())
             }
             it("should not use safe area") {
-                expect(view.safeKeyboardLayoutGuide.usingSafeArea).to(beTrue())
+                expect(view.safeClavierLayoutGuide.usingSafeArea).to(beTrue())
             }
         }
         describe("CGRect Extensions") {

@@ -10,22 +10,25 @@ import Foundation
 import UIKit
 
 extension UIView {
-    public var keyboardLayoutGuide: KeyboardLayoutGuide {
-        return keyboardLayoutGuideFactory(usingSafeArea: false)
+    public var clavierLayoutGuide: UILayoutGuide {
+        return clavierLayoutGuideFactory(usingSafeArea: false)
     }
     
-    public var safeKeyboardLayoutGuide: KeyboardLayoutGuide {
-        return keyboardLayoutGuideFactory(usingSafeArea: true)
+    public var safeClavierLayoutGuide: UILayoutGuide {
+        return clavierLayoutGuideFactory(usingSafeArea: true)
     }
     
-    func keyboardLayoutGuideFactory(usingSafeArea: Bool) -> KeyboardLayoutGuide {
+    func clavierLayoutGuideFactory(usingSafeArea: Bool) -> UILayoutGuide {
+        if #available(iOS 15.0, *), !usingSafeArea {
+            return keyboardLayoutGuide
+        }
         for guide in layoutGuides {
-            if let keyboardGuide = guide as? KeyboardLayoutGuide,
+            if let keyboardGuide = guide as? ClavierLayoutGuide,
                keyboardGuide.usingSafeArea == usingSafeArea {
                 return keyboardGuide
             }
         }
-        let keyboardGuide = KeyboardLayoutGuide(usingSafeArea: usingSafeArea)
+        let keyboardGuide = ClavierLayoutGuide(usingSafeArea: usingSafeArea)
         addLayoutGuide(keyboardGuide)
         return keyboardGuide
     }
