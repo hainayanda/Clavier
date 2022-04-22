@@ -107,6 +107,9 @@ public class ClavierLayoutGuide: UILayoutGuide {
     var keyboardRectInView: CGRect {
         guard let window = window,
               let view = owningView else { return defaultKeyboardRectInView }
+        if #available(iOS 15.0, *) {
+            return view.keyboardLayoutGuide.layoutFrame
+        }
         let rectInView = window.convert(keyboardRectInWindow, to: view)
         let intersection = rectInView.intersection(view.bounds)
         guard !intersection.isNull else { return defaultKeyboardRectInView }
