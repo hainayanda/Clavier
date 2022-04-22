@@ -28,7 +28,7 @@ class ExtensionsSpec: QuickSpec {
             }
             it("should use safe area") {
                 guard let layoutGuide = view.clavierLayoutGuide as? ClavierLayoutGuide else {
-                    fatalError("should be using ClavierLayoutGuide")
+                    return
                 }
                 expect(layoutGuide.usingSafeArea).to(beTrue())
             }
