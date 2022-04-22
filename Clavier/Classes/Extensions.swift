@@ -19,9 +19,29 @@ extension UIView {
     }
     
     func clavierLayoutGuideFactory(usingSafeArea: Bool) -> UILayoutGuide {
-        if #available(iOS 15.0, *), !usingSafeArea {
+        guard #available(iOS 15.0, *) else {
+            return oldiOSKeyboardLayoutGuide(usingSafeArea)
+        }
+        return iOS15KeyboardLayoutGuide(usingSafeArea)
+    }
+    
+    @available(iOS 15.0, *)
+    func iOS15KeyboardLayoutGuide(_ usingSafeArea: Bool) -> UILayoutGuide {
+        if usingSafeArea {
+            for guide in layoutGuides {
+                if let keyboardGuide = guide as? SafeAreaKeyboardLayoutGuide {
+                    return keyboardGuide
+                }
+            }
+            let keyboardGuide = SafeAreaKeyboardLayoutGuide()
+            addLayoutGuide(keyboardGuide)
+            return keyboardGuide
+        } else {
             return keyboardLayoutGuide
         }
+    }
+    
+    func oldiOSKeyboardLayoutGuide(_ usingSafeArea: Bool) -> UILayoutGuide {
         for guide in layoutGuides {
             if let keyboardGuide = guide as? ClavierLayoutGuide,
                keyboardGuide.usingSafeArea == usingSafeArea {
