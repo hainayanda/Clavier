@@ -85,16 +85,16 @@ If the keyboard is hidden, it will always use the most bottom of the UIView with
 
 ## Usage
 
-To use Clavier, just use `keyboardLayoutGuide` from any `UIView`, or `safeKeyboardLayoutGuide` if you prefer the one intersect with the safe area. it is an instance of `KeyboardLayoutGuide` class which extend `UILayoutGuide` so it has all its anchors, like `topAnchor`, `leadingAnchor`, etc:
+To use Clavier, just use `clavierLayoutGuide` from any `UIView`, or `safeClavierLayoutGuide` if you prefer the one intersect with the safe area. it is an instance of `ClavierLayoutGuide` class which extend `UILayoutGuide` so it has all its anchors, like `topAnchor`, `leadingAnchor`, etc:
 
 ```swift
-myView.bottomAnchor.constraints(equalTo: mySuperview.keyboardLayoutGuide.topAnchor)
+myView.bottomAnchor.constraints(equalTo: mySuperview.clavierLayoutGuide.topAnchor)
 ```
 
 or with safe area:
 
 ```swift
-myView.bottomAnchor.constraints(equalTo: mySuperview.safeKeyboardLayoutGuide.topAnchor)
+myView.bottomAnchor.constraints(equalTo: mySuperview.safeClavierLayoutGuide.topAnchor)
 ```
 
 myView will automatically move according to keyboard layout guide frame changes.
@@ -102,13 +102,13 @@ myView will automatically move according to keyboard layout guide frame changes.
 Since its subclass of UILayoutGuide, it has layoutFrame which is the intersection frame with keyboard frame, if you need it:
 
 ```swift
-let frameIntersectWithKeyboard: CGRect = view.keyboardLayoutGuide.layoutFrame
+let frameIntersectWithKeyboard: CGRect = view.clavierLayoutGuide.layoutFrame
 ```
 
 or with safe area:
 
 ```swift
-let frameIntersectWithKeyboard: CGRect = view.safeKeyboardLayoutGuide.layoutFrame
+let frameIntersectWithKeyboard: CGRect = view.safeClavierLayoutGuide.layoutFrame
 ```
 
 ***

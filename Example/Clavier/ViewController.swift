@@ -54,7 +54,7 @@ class ViewController: UIViewController {
         NSLayoutConstraint.activate([
             coloredView2.leftAnchor.constraint(equalTo: coloredView1.leftAnchor),
             coloredView2.rightAnchor.constraint(equalTo: coloredView1.rightAnchor),
-            coloredView2.bottomAnchor.constraint(equalTo: coloredView1.keyboardLayoutGuide.topAnchor),
+            coloredView2.bottomAnchor.constraint(equalTo: coloredView1.clavierLayoutGuide.topAnchor),
             coloredView2.heightAnchor.constraint(equalTo: coloredView1.heightAnchor, multiplier: 0.25)
         ])
         clavierButton.translatesAutoresizingMaskIntoConstraints = false
@@ -62,7 +62,7 @@ class ViewController: UIViewController {
         NSLayoutConstraint.activate([
             clavierButton.leftAnchor.constraint(equalTo: view.leftAnchor),
             clavierButton.rightAnchor.constraint(equalTo: view.rightAnchor),
-            clavierButton.bottomAnchor.constraint(equalTo: view.safeKeyboardLayoutGuide.topAnchor),
+            clavierButton.bottomAnchor.constraint(equalTo: view.safeClavierLayoutGuide.topAnchor),
             clavierButton.heightAnchor.constraint(equalToConstant: 36)
         ])
         textField.translatesAutoresizingMaskIntoConstraints = false

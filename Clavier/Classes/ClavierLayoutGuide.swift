@@ -24,7 +24,7 @@ enum KeyboardState {
     }
 }
 
-public class KeyboardLayoutGuide: UILayoutGuide {
+public class ClavierLayoutGuide: UILayoutGuide {
     
     var window: UIWindow? {
         UIApplication.shared.keyWindow

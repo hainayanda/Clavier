@@ -15,7 +15,7 @@ import UIKit
 
 class KeyboardLayoutGuideSpec: QuickSpec {
     override func spec() {
-        var layoutGuide: KeyboardLayoutGuide!
+        var layoutGuide: ClavierLayoutGuide!
         var window: UIWindow!
         var view: UIView!
         beforeEach {
@@ -108,7 +108,7 @@ class KeyboardLayoutGuideSpec: QuickSpec {
     }
 }
 
-class TestableKeyboardLayoutGuide: KeyboardLayoutGuide {
+class TestableKeyboardLayoutGuide: ClavierLayoutGuide {
     let dummyWindow: UIWindow = {
         let window = UIWindow()
         window.frame = CGRect(x: .zero, y: .zero, width: 100, height: 200)

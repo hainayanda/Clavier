@@ -1,11 +1,11 @@
 PODS:
-  - Clavier (1.0.1)
-  - Nimble (9.2.0)
+  - Clavier (1.0.3)
+  - Nimble (9.2.1)
   - Quick (4.0.0)
 
 DEPENDENCIES:
   - Clavier (from `../`)
-  - Nimble (~> 9.2.0)
+  - Nimble (~> 9.2.1)
   - Quick (~> 4.0.0)
 
 SPEC REPOS:
@@ -18,10 +18,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Clavier: 03e31d9184a083cc30569d46ef9358aa9568052a
-  Nimble: 4f4a345c80b503b3ea13606a4f98405974ee4d0b
+  Clavier: 6239df4971bd25a990b0b4426320bdf62928d089
+  Nimble: e7e615c0335ee4bf5b0d786685451e62746117d5
   Quick: 6473349e43b9271a8d43839d9ba1c442ed1b7ac4
 
-PODFILE CHECKSUM: 4828f07aca60d4190b67933d020964ae719a9fb1
+PODFILE CHECKSUM: 84b20c596af019478f30a13e14363ba84ec4403c
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2
