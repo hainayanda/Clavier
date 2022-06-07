@@ -8,7 +8,7 @@ target 'Clavier_Example' do
   target 'Clavier_Tests' do
     inherit! :search_paths
 
-    pod 'Quick', '~> 4.0.0'
-    pod 'Nimble', '~> 9.2.1'
+    pod 'Quick', '~> 5.0.1'
+    pod 'Nimble', '~> 10.0.0'
   end
 end
