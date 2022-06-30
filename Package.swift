@@ -15,8 +15,9 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/Quick/Quick.git", from: "5.0.1"),
-        .package(url: "https://github.com/Quick/Nimble.git", from: "10.0.0")
+        // uncomment code below to test
+//        .package(url: "https://github.com/Quick/Quick.git", from: "5.0.1"),
+//        .package(url: "https://github.com/Quick/Nimble.git", from: "10.0.0")
     ],
     targets: [
         .target(
@@ -24,12 +25,13 @@ let package = Package(
             dependencies: [],
             path: "Clavier/Classes"
         ),
-        .testTarget(
-            name: "ClavierTests",
-            dependencies: [
-                "Clavier", "Quick", "Nimble"
-            ],
-            path: "Example/Clavier"
-        )
+        // uncomment code below to test
+//        .testTarget(
+//            name: "ClavierTests",
+//            dependencies: [
+//                "Clavier", "Quick", "Nimble"
+//            ],
+//            path: "Example/Clavier"
+//        )
     ]
 )
