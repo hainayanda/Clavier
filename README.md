@@ -117,6 +117,16 @@ let frameIntersectWithKeyboard: CGRect = view.safeClavierLayoutGuide.layoutFrame
 
 On iOS 15, Clavier will defaultly use `keyboardLayoutGuide` from UIKit. on `safeClavierLayoutGuide`, it will use custom class that utilize `keyboardLayoutGuide` and `safeAreaLayoutGuide`
 
+You can explicitly disable iOS 15 `keyboardLayoutGuide` if you want by set directly with the view or by using global config.
+
+```swift
+myView.usingAppleKeyboardLayoutGuideIfAvailable = false
+
+// or to apply as default with all view
+
+ClavierGlobalConfig.usingAppleKeyboardLayoutGuideIfAvailable = false
+```
+
 # Contribute
 
 You know how, just clone and do pull request
