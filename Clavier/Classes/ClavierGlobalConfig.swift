@@ -8,5 +8,5 @@
 import Foundation
 
 public class ClavierGlobalConfig {
-    public static var usingAppleKeyboardLayoutGuideIfAvailable: Bool = true
+    public static var useAppleKeyboardLayoutGuideIfAvailable: Bool = true
 }
